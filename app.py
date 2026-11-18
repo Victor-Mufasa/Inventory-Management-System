@@ -3,7 +3,7 @@ import openfoodfacts
 
 app = Flask(__name__)
 
-# Create the OpenFoodFacts client ONCE
+# Create the OpenFoodFacts client once
 off_api = openfoodfacts.API(user_agent="SummativeLab/1.0")
 
 inventory = [
@@ -34,13 +34,11 @@ inventory = [
 ]
 
 
-# ---------- GET all items ----------
 @app.route("/inventory", methods=["GET"])
 def get_all():
     return jsonify(inventory), 200
 
 
-# ---------- GET one item ----------
 @app.route("/inventory/<int:id>", methods=["GET"])
 def get_one(id):
     item = next((i for i in inventory if i["id"] == id), None)
@@ -49,7 +47,6 @@ def get_one(id):
     return jsonify(item), 200
 
 
-# ---------- CREATE new item ----------
 @app.route("/inventory", methods=["POST"])
 def create():
     data = request.get_json()
@@ -71,7 +68,6 @@ def create():
     return jsonify(new_item), 201
 
 
-# ---------- UPDATE item ----------
 @app.route("/inventory/<int:id>", methods=["PATCH"])
 def update(id):
     data = request.get_json()
@@ -87,7 +83,6 @@ def update(id):
     return jsonify(item), 200
 
 
-# ---------- DELETE item ----------
 @app.route("/inventory/<int:id>", methods=["DELETE"])
 def delete(id):
     global inventory
@@ -128,7 +123,6 @@ def search():
         return jsonify({"error": "OpenFoodFacts failed"}), 404
 
 
-# ---------- IMPORT from OpenFoodFacts ----------
 @app.route("/inventory/import", methods=["POST"])
 def import_item():
     data = request.get_json()
