@@ -29,7 +29,7 @@ Built as a summative lab for the Python REST API module.
 ## Project Structure
 
 ```text
-inventory-lab/
+Inventory-Management-System/
 ├── app.py # Flask API with all routes
 ├── cli.py # Command-line interface
 ├── LICENSE # MIT License
