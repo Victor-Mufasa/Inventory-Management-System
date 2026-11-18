@@ -29,10 +29,10 @@ Built as a summative lab for the Python REST API module.
 ## Project Structure
 
 ```text
-inventory-lab/
+Inventory-Management-System/
 ├── app.py # Flask API with all routes
 ├── cli.py # Command-line interface
-├── test_app.py # Unit tests
+├── LICENSE # MIT License
 ├── requirements.txt # Dependencies
 ├── README.md # This file
 └── .gitignore # Ignored files (venv, caches)
@@ -162,12 +162,6 @@ Import a product from OpenFoodFacts:
 curl -X POST http://127.0.0.1:5555/inventory/import \
   -H "Content-Type: application/json" \
   -d '{"barcode":"3017620422003","price":6.99,"stock":12}'
-```
-
-## Running the tests
-
-```bash
-python -m pytest test_app.py -v
 ```
 
 ## External API — OpenFoodFacts
